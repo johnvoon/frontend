@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t johnvoon/frontend -f Dockerfile.dev .
+
+script:
+  - docker run johnvoon/frontend npm run test -- --coverage
